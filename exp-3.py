@@ -1,6 +1,5 @@
 import heapq
 
-# --- Union-Find for Kruskal ---
 class UnionFind:
     def __init__(self, n):
         self.parent = list(range(n))
@@ -8,7 +7,7 @@ class UnionFind:
 
     def find(self, x):
         if self.parent[x] != x:
-            self.parent[x] = self.find(self.parent[x])  # Path compression
+            self.parent[x] = self.find(self.parent[x]) 
         return self.parent[x]
 
     def union(self, x, y):
@@ -24,7 +23,7 @@ class UnionFind:
 
 def kruskal(n, edges):
     """edges: list of (weight, u, v)"""
-    edges.sort()  # O(E log E)
+    edges.sort() 
     uf = UnionFind(n)
     mst = []
     cost = 0
@@ -61,7 +60,6 @@ def prim(n, adj, start=0):
                 heapq.heappush(pq, (wt, v))
     return mst, cost
 
-# --- Graph Definition ---
 n = 7
 edges = [
     (7, 0, 1), (5, 0, 3), (8, 1, 2), (9, 1, 3),
