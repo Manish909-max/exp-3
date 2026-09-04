@@ -36,7 +36,7 @@ def kruskal(n, edges):
     return mst, cost
 
 def prim(n, adj, start=0):
-    """adj: adjacency list {u: [(v, w), ...]}"""
+    
     INF = float('inf')
     key = [INF] * n
     parent = [-1] * n
@@ -72,7 +72,6 @@ for w, u, v in edges:
     adj.setdefault(u, []).append((v, w))
     adj.setdefault(v, []).append((u, w))
 
-# Run Kruskal and Prim
 k_mst, k_cost = kruskal(n, edges[:])
 p_mst, p_cost = prim(n, adj)
 
